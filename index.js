@@ -9,8 +9,8 @@ class People{
         class Enginer extends People{
             constructor(name, id){
                 super(id, name, type)
-                this._name = name
-                this._id = id
+                this._name = this.name.bind(this)
+                this._id = this.id.bind(this)
                 this._type = 'Enginner'
             }
         }
@@ -33,11 +33,11 @@ class People{
     }
 }
 
-const novaPessoa1 = People.createStudent('33','Rafael','Medicina')
-const novaPessoa2 = People.createEnginer('Andressa','2')
-const novaPessoa3 = People.createEnginer('Rafael','26')
+// const novaPessoa1 = People.createStudent('33','Rafael','Medicina')
+// const novaPessoa2 = People.createEnginer('Andressa','2')
+// const novaPessoa3 = People.createEnginer('Rafael','26')
 
-console.log(novaPessoa1)
-console.log(novaPessoa2)
+// console.log(novaPessoa1)
+// console.log(novaPessoa2)
 
 

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Criando Pessoa</h1>
+        <form>
+            <label for="name">
+                <input name="name" onchange="habilitar()" type="text" placeholder="Your name here">
+                <select name="type">
+                    <option value="" selected disabled hidden>Choose here</option>
+                    <option value="1">Enginer</option>
+                    <option value="2r">Student</option>
+                </select>
+                <button name="add" onclick="novaPessoa()">Criar nova pessoa</button>
+            </label>
+        </form>
+    </div>
+
+    <script src="../index.js"></script>
+    <script>
+        const entrada = document.querySelector('input[name="name"]')
+        const btn = document.querySelector('button[name="add"');
+        const tipo = document.querySelector('select[name=type]')
+
+        
+        
+        function habilitar(){
+               if(entrada.value){
+                btn.disabled = false; 
+               }else{
+                btn.disabled = true; 
+               }      
+           }
+
+        function novaPessoa(){
+            const _name = entrada.value
+            const _tipo = tipo.value;
+            const _id = Math.random()*1000 + 'person';
+
+            let newPerson = new People()
+
+            if(_tipo==1){
+              const nova = newPerson.createEnginer(_id,_name,_tipo)
+              console.log(nova)
+            }
+   
+        }
+
+           document.onload(
+
+               btn.addEventListener('click',(e)=>{
+                   e.preventDefault();
+               }),
+
+               btn.disabled = true
+           )
+       
+    </script>
+    
+</body>
+</html>
