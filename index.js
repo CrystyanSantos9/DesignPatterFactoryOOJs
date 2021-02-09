@@ -1,13 +1,13 @@
-class People{
+class People {
 
-    constructor(){
+    constructor() {
         this._type = 'Person'
         this._date = new Date().getTime()
     }
-    
-    static createEnginer(id,name){
-        class Enginer extends People{
-            constructor(id,name,type){
+
+    static createEnginer(id, name) {
+        class Enginer extends People {
+            constructor(id, name, type) {
                 super(id, name)
                 this._name = name
                 this._id = id
@@ -15,30 +15,22 @@ class People{
             }
         }
 
-        return new Enginer(id,name);
+        return new Enginer(id, name);
     }
 
-    static createStudent(id, name, course,type){
-        class Student extends People{
-            constructor(id, name, course){
-                super(id,name,type)
+    static createStudent(id, name, type) {
+
+        class Student extends People {
+            constructor(id, name ) {
+                //ther order must be respected
+                super(id, name, type)
+                this._name = name
                 this._id = id
-                this._name = name 
-                this._course = course 
                 this._type = 'Student'
             }
 
         }
-        return new Student(id, name, course);
+        return new Student(id, name);
     }
 }
-
-// const novaPessoa1 = People.createStudent('33','Rafael','Medicina')
-
-// const novaPessoa2 = People.createEnginer('Andressa','2')
-// const novaPessoa3 = People.createEnginer('Rafael','26')
-
-// console.log(novaPessoa1)
-// console.log(novaPessoa2)
-
 
