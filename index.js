@@ -35,6 +35,7 @@ class People{
 
 const novaPessoa1 = People.createStudent('33','Rafael','Medicina')
 const novaPessoa2 = People.createEnginer('Andressa','2')
+const novaPessoa3 = People.createEnginer('Rafael','26')
 
 console.log(novaPessoa1)
 console.log(novaPessoa2)
