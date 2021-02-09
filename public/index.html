@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/styles/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -20,6 +21,15 @@
                 <button name="add" onclick="novaPessoa()">Criar nova pessoa</button>
             </label>
         </form>
+        <span class="clear"></span>
+        <table name="table">
+            <tr>
+              <th>Type</th>
+              <th>Created At</th>
+              <th>Name</th>
+              <th>Id</th>
+            </tr>
+          </table>
     </div>
 
     <script src="../index.js"></script>
@@ -27,6 +37,8 @@
         const entrada = document.querySelector('input[name="name"]')
         const btn = document.querySelector('button[name="add"');
         const tipo = document.querySelector('select[name=type]')
+        const tabela = document.querySelector('table[name=table]')
+
 
         
         
@@ -45,10 +57,28 @@
 
 
             if(_tipo==1){
+
+              //linha que será adicionada à tabela
+              let linha = document.createElement('tr')
               const nova = People.createEnginer(_id,_name)
+
               for(let field in nova){
+                //criando elemento que recebera os valores do objeto
+                let dados = document.createElement('td')
+
+                // console.log(nova[field])
+                // console.log(data)
+
+                dados.textContent = nova[field]
+                linha.append(dados)
+                tabela.appendChild(linha)
+                  
                   //pegando o valor de cada campo do objeto
-                  console.log(nova[field])
+                //   data.textContent(nova[field])
+
+                //   linha.append(data)
+                //   tabela.append(linha)
+                  
               }
             }
    
