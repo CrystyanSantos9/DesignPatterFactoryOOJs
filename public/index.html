@@ -43,11 +43,13 @@
             const _tipo = tipo.value;
             const _id = Math.random()*1000 + 'person';
 
-            let newPerson = new People()
 
             if(_tipo==1){
-              const nova = newPerson.createEnginer(_id,_name,_tipo)
-              console.log(nova)
+              const nova = People.createEnginer(_id,_name)
+              for(let field in nova){
+                  //pegando o valor de cada campo do objeto
+                  console.log(nova[field])
+              }
             }
    
         }
